@@ -3,7 +3,7 @@ public class Main {
         String yearToday = " год не является високосным";
         if (year - 1584 <= 0) {
             yearToday = " год должен быть больше, чем 1584";
-        } else if ((year % 4 == 0 || year % 100 == 0) && (year % 400 != 0)) {
+        } else if ((year % 400 == 0) || (year % 4 == 0 && year % 100 != 0)) {
             yearToday = " год является високосным";
         }
         return yearToday;
@@ -27,9 +27,9 @@ public class Main {
         String totalDistance = "";
         if (deliveryDistance <= 20) {
             totalDistance = "Потребуется дней : 1";
-        } else if (deliveryDistance > 20 && deliveryDistance <= 60) {
+        } else if (deliveryDistance <= 60) {
             totalDistance = "Потребуется дней : 2";
-        } else if (deliveryDistance > 60 && deliveryDistance <= 100) {
+        } else if (deliveryDistance <= 100) {
             totalDistance = "Потребуется дней : 3";
         } else {
             totalDistance = "Доставки свыше 100 км доставки нет";
@@ -39,7 +39,7 @@ public class Main {
 
     public static void main(String[] args) {
         System.out.println("Задание 1");
-        int year = 2004;
+        int year = 1900;
         System.out.println(year + yearToday(year));
         System.out.println();
         System.out.println("Задание 2");
